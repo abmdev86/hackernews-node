@@ -9,6 +9,18 @@ const newLink = {
   },
 };
 
+function newVoteSubscribe(parent, args, context, info) {
+  return context.pubsub.asyncIterator("New_Vote");
+}
+
+const newVote = {
+  subscribe: newVoteSubscribe,
+  resolve: payload => payload
+};
+
+
+
 module.exports = {
-  newLink
+  newLink,
+  newVote
 };
